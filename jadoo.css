@@ -1,0 +1,311 @@
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    transition:all .3s;
+    box-sizing:border-box;
+    list-style:none;
+  }
+  
+  body{
+    background:#0B0B0B;
+    color:#48C000;
+    font-family: "VT323", monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+  }
+  
+  
+  
+  
+  .container{
+    background:#399700;
+    width:98vw;
+    height:90vh;
+    border:2px solid #399700;
+    display:grid;
+    grid-template-columns: calc(50% - 1.3px) calc(50% - 1.3px);
+    grid-template-rows: calc(50% - 1.3px) calc(50% - 1.3px);
+    gap:2.6px;
+    
+  }
+  
+  
+  .container div{
+    background:#0B0B0B;
+    position:relative;
+  }
+  
+  
+  
+  .main-container .name,
+  .main-container .press-keys{
+    text-align:right;
+    padding:1vmin 2vmin;
+    font-size:1rem;
+  }
+  
+  
+  .main-container .press-keys{
+    text-align:left;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+  }
+  
+  .main-container .press-keys ul{
+    display:flex;
+    gap:.2rem;
+    text-transform:uppercase;
+    color:#E10D02;
+  }
+  
+  .main-container .press-keys ul li{
+    border-bottom:2px solid transparent;
+  }
+  
+  
+  .container .sending-box p,
+  .container .receiving p{
+    text-transform:uppercase;
+    letter-spacing:1px;
+    padding:.2rem;
+    font-size:1.5rem;
+    animation: animateMsg 2s steps(2) infinite;
+    animation-duration:var(--an);
+  }
+  
+  
+  @keyframes animateMsg{
+    0%{
+      color:#48C000;
+    }
+    100%{
+      color:#399700;
+    }
+  }
+  
+  .container .sending-box div,
+  .container .receiving div{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) rotate(-80deg);
+    display:grid;
+    grid-template-columns:auto auto auto auto auto auto auto auto;
+    grid-template-rows:1px 2px 3px 1px 2px 3px 1px 2px 3px 1px 2px 3px 1px 2px 3px 1px;
+    gap:8px 5px;
+  }
+  
+  
+  .container .receiving div{
+      transform:translate(-50%,-50%) rotate(0deg);
+  }
+  
+  
+  
+  .container .sending-box div .loading,
+  .container .receiving div .loading{
+    background:#399700;
+    width:1.1rem;
+    display:inline-block;
+    transform:rotateX(40deg) rotateY(180deg);
+    animation:animate 0s linear infinite;
+    animation-duration:var(--i);
+  }
+  
+  
+  @keyframes animate{
+    
+    0%,100%{
+      height:1rem;
+      box-shadow:0 0 0px 0px #399700;
+      opacity:0;
+    }
+    
+    80%{
+      height:0px;
+      box-shadow:0 0 20px 1px #399700;
+      opacity:.5;
+    }
+  }
+  
+  
+  
+  
+  .container .loadings div{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:10rem;
+    height:10rem;
+    animation:loading 8s ease infinite alternate;
+    transform-style: preserve-3d;
+    background:transparent;
+  }
+  
+  
+  .container .loadings div span{
+    width:100%;
+    height:100%;
+    display:block;
+    border-radius:50%;
+    position:absolute;
+    border:.25rem solid #399700;
+  
+  }
+  
+  
+  .container .loadings div span:nth-child(1){
+    transform:translateZ(0px) translateX(0px) translateY(0px) rotateY(20deg);
+    animation:wave 6s ease infinite alternate;
+  }
+  
+  
+  @keyframes wave{
+    0%{
+       transform:translateZ(0px) translateX(0px) translateY(0px) rotateY(0deg);
+    }
+   50%{
+       transform:translateZ(0px) translateX(0px) translateY(0px) rotateY(163deg);
+    }
+    100%{
+       transform:translateZ(0px) translateX(0px) translateY(0px) rotateY(333deg);
+    }
+  }
+  
+  .container .loadings div span:nth-child(2){
+    transform:translateZ(10px) translateX(0px) translateY(0px) rotateY(90deg);
+  }
+  
+  
+  .container .loadings div span:nth-child(3){
+    transform:translateZ(10px) translateX(0px) translateY(0px) rotateY(90deg) rotateX(40deg);
+  }
+  
+  .container .loadings div span:nth-child(4){
+    transform:translateZ(10px) translateX(0px) translateY(0px) rotateY(90deg) rotateX(90deg);
+  }
+  
+  
+  .container .loadings div span:nth-child(5){
+    transform:translateZ(10px) translateX(0px) translateY(0px) rotateY(90deg) rotateX(140deg);
+  }
+  
+  
+  
+  
+  
+  @keyframes loading{
+    
+    0%{
+      transform:translate(-50%,-50%) rotateX(0) rotateY(0);
+    }
+    
+    40%{
+      transform:translate(-50%,-50%) rotateX(200deg) rotateY(20deg);
+    }
+    
+    80%{
+      transform:translate(-50%,-50%) rotateX(360deg) rotateY(130deg);
+    }
+    
+    100%{
+      transform:translate(-50%,-50%) rotateX(60deg) rotateY(360deg);
+    }
+  }
+  
+  
+  
+  
+  .container .message .message-signal ul{
+    text-transform:uppercase;
+    text-align:left;
+    padding:3rem 3rem;
+    font-size:1.2rem;
+  }
+  
+  
+  .container .message .message-signal ul li span{
+    animation: animateMsg 2s steps(2) infinite;
+    animation-duration:var(--an);
+  }
+  
+  .container .message .message-signal ul li:nth-child(2){
+    padding-left:.5rem;
+  }
+  
+  
+  .container .message .message-signal ul li:nth-child(3){
+    padding-left:.8rem;
+  }
+  
+  
+  .container .message .message-signal ul li:nth-child(4){
+    padding-left:1.4rem;
+  }
+  
+  
+  .container .message .message-signal ul li:nth-child(5){
+    padding-top:1.4rem;
+  }
+  
+  
+  .container .message .message-signal div{
+    text-transform:uppercase;
+    position:absolute;
+    right:.5rem;
+    top:3.5rem;
+    font-size:1.2rem;
+  }
+  
+  
+  @media screen and (min-width: 0px) and (max-width: 700px) {
+    body {
+      background:url('https://static.vecteezy.com/system/resources/thumbnails/003/541/191/original/space-travel-through-grunge-dark-green-cloud-nebula-galaxy-exploration-through-outer-space-free-video.jpg') #0B0B0B;
+      background-size:cover;
+      background-position:center;
+      box-shadow:inset 0 0 6vmin 3vmin #48C000;
+    }
+    
+    
+    body:before{
+      content:"Please open laptop or tablet";
+      width:95vmin;
+      height:20vmin;
+      position:absolute;
+      text-transform:uppercase;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:5.5vmin;
+      border:1vmin double #48C000;
+      background:#0B0B0B;
+      color:#48C000;
+      border-radius:.5vmin;
+      animation: animateMsg 2s steps(2) infinite;
+    }
+    
+    
+    body:after{
+      content:"";
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:#48C000;
+      z-index:-1;
+      opacity:.3;
+    }
+    
+    .main-container{
+      display:none;
+    }
+  }
